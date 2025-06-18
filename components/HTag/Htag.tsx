@@ -1,7 +1,7 @@
 import React from 'react';
 import { IHtagProps } from './Htag.props';
 import styles from './HTag.module.css';
-const Htag = ({ children, tag }: IHtagProps) => {
+export const Htag = ({ children, tag }: IHtagProps) => {
     switch (tag) {
         case 'h1':
             return <h1 className={styles.h1}>{children}</h1>;
@@ -14,5 +14,3 @@ const Htag = ({ children, tag }: IHtagProps) => {
             return <></>;
     }
 };
-
-export default Htag;
