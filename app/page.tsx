@@ -1,3 +1,4 @@
+import Htag from '@/components';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -5,5 +6,10 @@ export const metadata: Metadata = {
     description: 'Первый проект на nextJS',
 };
 export default function Home() {
-    return <div>hello</div>;
+    return (
+        <>
+            hello
+            <Htag tag="h1">Заголовок</Htag>
+        </>
+    );
 }
