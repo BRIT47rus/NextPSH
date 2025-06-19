@@ -1,2 +1,5 @@
-export { Htag } from './HTag/Htag';
-export { Button } from './Button/Button';
+import { Htag } from './HTag/Htag';
+import { Button } from './Button/Button';
+import P from './P/P';
+
+export { P, Button, Htag };

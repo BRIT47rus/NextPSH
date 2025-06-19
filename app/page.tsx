@@ -1,4 +1,4 @@
-import { Button, Htag } from '@/components';
+import { Button, Htag, P } from '@/components';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -16,6 +16,9 @@ export default function Home() {
             <Button appearance="ghost" arrow="down">
                 Button
             </Button>
+            <P size="l">big</P>
+            <P size="m">midle</P>
+            <P size="s">small</P>
         </>
     );
 }
