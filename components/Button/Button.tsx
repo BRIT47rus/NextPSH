@@ -2,10 +2,12 @@ import React from 'react';
 import { IButtonProps } from './Button.props';
 import styles from './Button.module.css';
 import cn from 'classnames';
+
 export const Button = ({
     appearance,
     children,
     className,
+    arrow = 'none',
     ...props
 }: IButtonProps) => {
     return (
@@ -17,6 +19,16 @@ export const Button = ({
             {...props}
         >
             {children}
+            {arrow !== 'none' && (
+                <span
+                    className={cn(styles.arrow, {
+                        [styles.down]: arrow === 'down',
+                        [styles.right]: arrow === 'right',
+                    })}
+                >
+                    →
+                </span>
+            )}
         </button>
     );
 };

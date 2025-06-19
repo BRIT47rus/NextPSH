@@ -10,8 +10,12 @@ export default function Home() {
         <>
             hello
             <Htag tag="h1">Заголовок</Htag>
-            <Button appearance="primary">Button</Button>
-            <Button appearance="ghost">Button</Button>
+            <Button appearance="primary" arrow="right">
+                Button
+            </Button>
+            <Button appearance="ghost" arrow="down">
+                Button
+            </Button>
         </>
     );
 }
