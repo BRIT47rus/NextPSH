@@ -34,7 +34,7 @@
     transform: rotate(90deg);
     transition: all 0.2s;
 }
-.primary span,
-.ghost:hover span {
-    color: var(--white);
+.primary svg path,
+.ghost:hover svg path {
+    stroke: var(--white);
 }
