@@ -1,4 +1,4 @@
-import { Button, Htag, P } from '@/components';
+import { Button, Htag, P, Tag } from '@/components';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -19,6 +19,14 @@ export default function Home() {
             <P size="l">big</P>
             <P size="m">midle</P>
             <P size="s">small</P>
+            <Tag size="s">Маленький</Tag>
+            <Tag size="m" color="primary">
+                Мало
+            </Tag>
+            <Tag size="s" color="green">
+                Мало
+            </Tag>
+            <Tag color="red">Мало</Tag>
         </>
     );
 }
