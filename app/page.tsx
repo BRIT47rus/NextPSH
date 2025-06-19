@@ -1,4 +1,4 @@
-import { Button, Htag, P, Tag } from '@/components';
+import { Button, Htag, P, Rating, Tag } from '@/components';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -27,6 +27,7 @@ export default function Home() {
                 Мало
             </Tag>
             <Tag color="red">Мало</Tag>
+            <Rating rating={4} />
         </>
     );
 }
