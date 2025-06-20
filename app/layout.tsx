@@ -1,10 +1,13 @@
+import Footer from './(site)/components/Footer/Footer';
+import Header from './(site)/components/Header/Header';
+import Sidebar from './(site)/components/Sidebar/Sidebar';
 import './globals.css';
 import { Open_Sans } from 'next/font/google';
 
 const inter = Open_Sans({ subsets: ['latin'] });
 
 export const metadata = {
-    title: 'Проект',
+    title: 'Главная',
     description: 'Мой первый проект на NextJS',
 };
 export default function RootLayout({
@@ -14,7 +17,12 @@ export default function RootLayout({
 }) {
     return (
         <html lang="ru">
-            <body className={inter.className}>{children}</body>
+            <body className={inter.className}>
+                <Header />
+                <Sidebar />
+                <div>{children}</div>
+                <Footer />
+            </body>
         </html>
     );
 }
