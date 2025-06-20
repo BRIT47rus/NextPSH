@@ -1,11 +1,14 @@
+'use client';
 import { Button, Htag, P, Rating, Tag } from '@/components';
-import { Metadata } from 'next';
+// import { Metadata } from 'next';
+import { useState } from 'react';
 
-export const metadata: Metadata = {
-    title: 'Мой проект',
-    description: 'Первый проект на nextJS',
-};
+// export const metadata: Metadata = {
+//     title: 'Мой проект',
+//     description: 'Первый проект на nextJS',
+// };
 export default function Home() {
+    const [rating, setRating] = useState<number>(4);
     return (
         <>
             hello
@@ -27,7 +30,7 @@ export default function Home() {
                 Мало
             </Tag>
             <Tag color="red">Мало</Tag>
-            <Rating rating={4} />
+            <Rating rating={rating} isEditable seRating={setRating} />
         </>
     );
 }
