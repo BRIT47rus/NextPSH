@@ -7,7 +7,9 @@ import { useState } from 'react';
 //     title: 'Мой проект',
 //     description: 'Первый проект на nextJS',
 // };
+
 export default function Home() {
+    // const menu = getMenu(0);
     const [rating, setRating] = useState<number>(4);
     return (
         <>
