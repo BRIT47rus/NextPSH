@@ -1,5 +1,8 @@
 'use client';
+// import { getMenu } from '@/api/menu';
 import { Button, Htag, P, Rating, Tag } from '@/components';
+import { Menu } from './components/menu';
+
 // import { Metadata } from 'next';
 import { useState } from 'react';
 
@@ -9,11 +12,9 @@ import { useState } from 'react';
 // };
 
 export default function Home() {
-    // const menu = getMenu(0);
     const [rating, setRating] = useState<number>(4);
     return (
-        <>
-            hello
+        <main>
             <Htag tag="h1">Заголовок</Htag>
             <Button appearance="primary" arrow="right">
                 Button
@@ -33,6 +34,7 @@ export default function Home() {
             </Tag>
             <Tag color="red">Мало</Tag>
             <Rating rating={rating} isEditable seRating={setRating} />
-        </>
+            <Menu />
+        </main>
     );
 }
