@@ -5,7 +5,7 @@ export async function Menu() {
 
     return (
         <main>
-            <div>{JSON.stringify(menu)}</div>
+            <div>{JSON.stringify(menu).length}</div>
             {/* <div>{menu[0]._id.secondCategory}</div> */}
         </main>
     );

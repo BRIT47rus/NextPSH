@@ -1,23 +1,35 @@
+import { getMenu } from '@/api/menu';
 import { getPage } from '@/api/page';
+
 import { Metadata } from 'next';
-// import { notFound } from 'next/navigation';
-import React from 'react';
-export const metadate: Metadata = {
-    title: 'Продукты',
-};
-const PageProducts = async ({ params }: { params: { alias: string } }) => {
+import { notFound } from 'next/navigation';
+
+export async function generateMetadata({
+    params,
+}: {
+    params: { alias: string };
+}): Promise<Metadata> {
+    const page = await getPage(params.alias);
+    return {
+        title: page?.metaTitle,
+    };
+}
+
+export async function generateStaticParams() {
+    const menu = await getMenu(0);
+    return menu.flatMap((item) =>
+        item.pages.map((page) => ({ alias: page.alias }))
+    );
+}
+
+export default async function PageProducts({
+    params,
+}: {
+    params: { alias: string };
+}) {
     const page = await getPage(params.alias);
     if (!page) {
-        // notFound();
-        return <h1>ПРодукты</h1>;
+        notFound();
     }
-
-    return (
-        <div>
-            Продукты
-            <div>{page.title}</div>
-        </div>
-    );
-};
-
-export default PageProducts;
+    return <div>{page.title}</div>;
+}

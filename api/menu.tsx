@@ -9,5 +9,12 @@ export async function getMenu(firstCategory: number): Promise<MenuItem[]> {
         }),
         headers: new Headers({ 'content-type': 'application/json' }),
     });
+
+    if (!res.ok) {
+        console.error(
+            `Failed to fetch menu for category ${firstCategory}: ${res.status} ${res.statusText}`
+        );
+        return []; // Возвращаем пустой массив в случае ошибки
+    }
     return res.json();
 }
