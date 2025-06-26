@@ -7,7 +7,8 @@ import BookIcon from './icons/book.svg';
 import CloudIcon from './icons/cloud.svg';
 import { TopLevelCategory } from '@/interfaces/page.interface';
 import classNames from 'classnames';
-import { getMenu } from '@/api/menu';
+// import { getMenu } from '@/api/menu';
+import { useSidebarCTX } from './Sidebar/Sidebar';
 
 const firstLevelMenu: FirstLevelMenuItem[] = [
     {
@@ -36,8 +37,9 @@ const firstLevelMenu: FirstLevelMenuItem[] = [
     },
 ];
 
-export async function Menu() {
-    const menuM = await getMenu(0);
+export function Menu() {
+    // const menuM = await getMenu(0);
+    const menuM = useSidebarCTX();
 
     const buildFirstLevel = () => {
         return (
@@ -67,20 +69,21 @@ export async function Menu() {
     const buildSecondLevel = (menuItem: FirstLevelMenuItem) => {
         return (
             <div className={classNames(styles.secondBlock)}>
-                {menuM.map((m) => (
-                    <div key={m._id.secondCategory}>
-                        <div className={styles.secondCategory}>
-                            {m._id.secondCategory}
+                {menuM &&
+                    menuM.map((m) => (
+                        <div key={m._id.secondCategory}>
+                            <div className={styles.secondCategory}>
+                                {m._id.secondCategory}
+                            </div>
+                            <div
+                                className={classNames(styles.secondLevelBlock, {
+                                    [styles.secondBlockOpen]: m.isOpened,
+                                })}
+                            >
+                                {buildThirdLevel(m.pages, menuItem.route)}
+                            </div>
                         </div>
-                        <div
-                            className={classNames(styles.secondLevelBlock, {
-                                [styles.secondBlockOpen]: m.isOpened,
-                            })}
-                        >
-                            {buildThirdLevel(m.pages, menuItem.route)}
-                        </div>
-                    </div>
-                ))}
+                    ))}
             </div>
         );
     };
